@@ -7,7 +7,7 @@ const zipRegex=new RegExp("^[0-9]{6}$");
 const phoneRegex=new RegExp("[0-9]{2}[\\s][0-9]{10}");
 const emailRegex=new RegExp("^[a-z0-9A-Z]+(([\\.+-][a-z0-9]{1,})?)+@[a-z0-9A-Z]+\\.([a-z]{2,6})+((\\.[a-zA-Z]{2,6})?)$");
 
-
+let contactArray=new Array();
 class Contact{
     constructor(firstName,lastName,address,city,state,zip,phoneNumber,email){
         this.firstName=firstName;
@@ -90,7 +90,17 @@ class Contact{
     }
     
 }
-contact=new Contact("Babli","Yadav","indrapuri","patna","bihar",800024,"91 9900887766","bab@gmail.com");
-console.log(contact.toString());
+try{
+    let contact1=new Contact("Babli","Yadav","indrapuri","patna","bihar",800024,"91 9900887766","bab@gmail.com");
+    let contact2=new Contact("Nancy","Yadav","indrapuri","mumbai","bihar",800024,"91 9900887766","bab@gmail.com");
+    let contact3=new Contact("Sagar","Yadav","indrapuri","aara","bihar",800024,"91 9900887766","bab@gmail.com");
+
+    contactArray.push(contact1);
+    contactArray.push(contact2);
+    contactArray.push(contact3);
+}catch(exception){
+    console.log(exception)
+}
+console.log(contactArray);
 
 
