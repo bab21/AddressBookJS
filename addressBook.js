@@ -186,12 +186,22 @@ function contactCountForState(state){
 function sortByContactName(){
     contactArray.sort((contact1, contact2) => contact1.firstName.localeCompare(contact2.firstName));
 }
+//UC12...
+function sortByCityName(){
+    contactArray.sort((contact1, contact2) => contact1.city.localeCompare(contact2.city));
+}
+function sortByStateName(){
+    contactArray.sort((contact1, contact2) => contact1.state.localeCompare(contact2.state));
+}
+function sortByZipCode(){
+    contactArray.sort((contact1, contact2) => contact1.zip-contact2.zip);
+}
 try{
     let contact1=new Contact("Babli","Yadav","indrapuri","patna","bihar",800024,"91 9900887766","bab@gmail.com");
-    let contact2=new Contact("Nancy","Yadav","indrapuri","mumbai","bihar",800024,"91 9900887766","bab@gmail.com");
-    let contact3=new Contact("Sagar","Yadav","indrapuri","aara","bihar",800024,"91 9900887766","bab@gmail.com");
-    let contact4=new Contact("Neha","Yadav","indrapuri","aara","bihar",800024,"91 9900887766","bab@gmail.com");
-    let contact5=new Contact("Pihu","Yadav","indrapuri","aara","bihar",800024,"91 9900887766","bab@gmail.com");
+    let contact2=new Contact("Nancy","Yadav","indrapuri","mumbai","bihar",800028,"91 9900887766","bab@gmail.com");
+    let contact3=new Contact("Sagar","Yadav","indrapuri","aara","bihar",800019,"91 9900887766","bab@gmail.com");
+    let contact4=new Contact("Neha","Yadav","indrapuri","aara","bihar",800089,"91 9900887766","bab@gmail.com");
+    let contact5=new Contact("Pihu","Yadav","indrapuri","aara","bihar",800056,"91 9900887766","bab@gmail.com");
 
     addContact(contact1);
     addContact(contact2);
@@ -218,7 +228,15 @@ console.log(contactArray);
 // console.log("Number of persons in aara is "+contactCountForCity("aara"));
 // console.log("Number of persons  in bihar is "+contactCountForState("bihar"));
 
-sortByContactName();
-console.log("after sorting by name ");
+sortByZipCode();
+console.log("after sorting by zip code ");
+console.log(contactArray);
+
+sortByCityName();
+console.log("after sorting by city name ");
+console.log(contactArray);
+
+sortByStateName();
+console.log("after sorting by state name ");
 console.log(contactArray);
 
