@@ -160,6 +160,19 @@ function getContactForCity(city){
 function getContactForState(state){
     return contactArray.filter(contact=> contact.state==state);
 }
+//UC9...
+function searchPersonInCity(firstName,city){
+    contactListForCity=contactArray.filter(contact=> contact.city==city && contact.firstName==firstName);
+    if(contactListForCity.length>0)
+        return true;
+    else return false;
+}
+function searchPersonInState(firstName,state){
+    contactListForState=contactArray.filter(contact=> contact.state==state && contact.firstName==firstName);
+    if(contactListForState.length>0)
+        return true;
+    else return false;
+}
 try{
     let contact1=new Contact("Babli","Yadav","indrapuri","patna","bihar",800024,"91 9900887766","bab@gmail.com");
     let contact2=new Contact("Nancy","Yadav","indrapuri","mumbai","bihar",800024,"91 9900887766","bab@gmail.com");
@@ -177,8 +190,8 @@ try{
     console.log(exception)
 }
 console.log(contactArray);
-console.log("contacts for particular city");
-console.log(getContactForCity("aara"));
+// console.log("contacts for particular city");
+// console.log(getContactForCity("aara"));
 
 // editContact("Babli","Yadav");
 // console.log(contactArray);
@@ -187,4 +200,6 @@ console.log(getContactForCity("aara"));
 // console.log("After deletion");
 // console.log(contactArray);
 // console.log("size of contact list "+getNumberOfContacts());
+console.log(searchPersonInCity("Babli","patna"));
+console.log(searchPersonInState("Babli","bihar"));
 
