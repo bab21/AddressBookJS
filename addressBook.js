@@ -142,6 +142,10 @@ function deleteContact(firstName,lastName){
         }
     }
 }
+//UC6...
+function getNumberOfContacts(){
+    return contactArray.reduce(count=> count+1,0);
+}
 try{
     let contact1=new Contact("Babli","Yadav","indrapuri","patna","bihar",800024,"91 9900887766","bab@gmail.com");
     let contact2=new Contact("Nancy","Yadav","indrapuri","mumbai","bihar",800024,"91 9900887766","bab@gmail.com");
@@ -157,8 +161,9 @@ console.log(contactArray);
 // editContact("Babli","Yadav");
 // console.log(contactArray);
 
-deleteContact("Babli","Yadav");
-console.log("After deletion");
-console.log(contactArray);
+// deleteContact("Babli","Yadav");
+// console.log("After deletion");
+// console.log(contactArray);
+console.log("size of contact list "+getNumberOfContacts());
 
 
