@@ -133,6 +133,15 @@ function editContact(firstName,lastName){
         default: console.log("no updation ");
     }
 }
+//UC5...
+function deleteContact(firstName,lastName){
+    for(let i=0;i<contactArray.length;i++){
+        if(contactArray[i].firstName==firstName && contactArray[i].lastName==lastName){
+            contactArray.splice(i,i+1);
+            return;
+        }
+    }
+}
 try{
     let contact1=new Contact("Babli","Yadav","indrapuri","patna","bihar",800024,"91 9900887766","bab@gmail.com");
     let contact2=new Contact("Nancy","Yadav","indrapuri","mumbai","bihar",800024,"91 9900887766","bab@gmail.com");
@@ -145,8 +154,11 @@ try{
     console.log(exception)
 }
 console.log(contactArray);
-editContact("Babli","Yadav");
-console.log(contactArray);
+// editContact("Babli","Yadav");
+// console.log(contactArray);
 
+deleteContact("Babli","Yadav");
+console.log("After deletion");
+console.log(contactArray);
 
 
