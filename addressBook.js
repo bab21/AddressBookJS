@@ -93,7 +93,7 @@ class Contact{
 }
 
 function findContact(firstName,lastName){
-    let contactFound;
+    let contactFound=null;
     contactArray.forEach(contact=>{
         if(contact.firstName==firstName && contact.lastName==lastName)
             contactFound=contact;
@@ -146,14 +146,22 @@ function deleteContact(firstName,lastName){
 function getNumberOfContacts(){
     return contactArray.reduce(count=> count+1,0);
 }
+
+//UC7..
+function addContact(contact){
+    if(findContact(contact.firstName,contact.lastName)==null)
+        contactArray.push(contact);
+    else throw "contact already exits";
+}
 try{
     let contact1=new Contact("Babli","Yadav","indrapuri","patna","bihar",800024,"91 9900887766","bab@gmail.com");
     let contact2=new Contact("Nancy","Yadav","indrapuri","mumbai","bihar",800024,"91 9900887766","bab@gmail.com");
-    let contact3=new Contact("Sagar","Yadav","indrapuri","aara","bihar",800024,"91 9900887766","bab@gmail.com");
+    let contact3=new Contact("Babli","Yadav","indrapuri","aara","bihar",800024,"91 9900887766","bab@gmail.com");
 
-    contactArray.push(contact1);
-    contactArray.push(contact2);
-    contactArray.push(contact3);
+    addContact(contact1);
+    addContact(contact2);
+    addContact(contact3);
+
 }catch(exception){
     console.log(exception)
 }
@@ -164,6 +172,5 @@ console.log(contactArray);
 // deleteContact("Babli","Yadav");
 // console.log("After deletion");
 // console.log(contactArray);
-console.log("size of contact list "+getNumberOfContacts());
-
+// console.log("size of contact list "+getNumberOfContacts());
 
