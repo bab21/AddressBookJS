@@ -7,6 +7,7 @@ const zipRegex=new RegExp("^[0-9]{6}$");
 const phoneRegex=new RegExp("[0-9]{2}[\\s][0-9]{10}");
 const emailRegex=new RegExp("^[a-z0-9A-Z]+(([\\.+-][a-z0-9]{1,})?)+@[a-z0-9A-Z]+\\.([a-z]{2,6})+((\\.[a-zA-Z]{2,6})?)$");
 
+const prompt=require('prompt-sync')();
 let contactArray=new Array();
 class Contact{
     constructor(firstName,lastName,address,city,state,zip,phoneNumber,email){
@@ -90,6 +91,48 @@ class Contact{
     }
     
 }
+
+function findContact(firstName,lastName){
+    let contactFound;
+    contactArray.forEach(contact=>{
+        if(contact.firstName==firstName && contact.lastName==lastName)
+            contactFound=contact;
+    });
+    return contactFound;
+}
+function editContact(firstName,lastName){
+    contact=findContact(firstName,lastName);
+    console.log("contact found"+contact);
+
+    console.log("1.Edit address");
+    console.log("2.Edit city");
+    console.log("3.Edit state");
+    console.log("4.Edit zip");
+    console.log("5.Edit phone number");
+    console.log("6.Edit email");
+    let choice=parseInt(prompt("Choose any field "));
+    switch(choice){
+        case 1: address=prompt("Enter address for updation ");
+                contact.address=address;
+                break;
+        case 2: city=prompt("Enter city for updation ");
+                contact.city=city;
+                break;
+        case 3: state=prompt("Enter state for updation ");
+                contact.state=state;
+                break;
+        case 4: zip=prompt("Enter zip for updation ");
+                contact.zip=zip;
+                break;
+        case 5: phoneNumber=prompt("Enter phone number for updation ");
+                contact.phoneNumber=phoneNumber;
+                break;
+        case 6: email=prompt("Enter email for updation ");
+                contact.email=email;
+                break;
+        default: console.log("no updation ");
+    }
+}
 try{
     let contact1=new Contact("Babli","Yadav","indrapuri","patna","bihar",800024,"91 9900887766","bab@gmail.com");
     let contact2=new Contact("Nancy","Yadav","indrapuri","mumbai","bihar",800024,"91 9900887766","bab@gmail.com");
@@ -102,5 +145,8 @@ try{
     console.log(exception)
 }
 console.log(contactArray);
+editContact("Babli","Yadav");
+console.log(contactArray);
+
 
 
