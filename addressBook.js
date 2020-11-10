@@ -19,4 +19,4 @@ class Contact{
 contact=new Contact("Babli","Yadav","Indrapuri","Patna","Bihar",800024,9900887766,"bab@gmail.com");
 contact.city="Pune";
 console.log(contact.toString());
-console.log("Address    : "+contact.address);
+console.log("City   : "+contact.city);
