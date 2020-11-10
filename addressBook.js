@@ -153,19 +153,33 @@ function addContact(contact){
         contactArray.push(contact);
     else throw "contact already exits";
 }
+//UC8....
+function getContactForCity(city){
+    return contactArray.filter(contact=> contact.city==city);
+}
+function getContactForState(state){
+    return contactArray.filter(contact=> contact.state==state);
+}
 try{
     let contact1=new Contact("Babli","Yadav","indrapuri","patna","bihar",800024,"91 9900887766","bab@gmail.com");
     let contact2=new Contact("Nancy","Yadav","indrapuri","mumbai","bihar",800024,"91 9900887766","bab@gmail.com");
-    let contact3=new Contact("Babli","Yadav","indrapuri","aara","bihar",800024,"91 9900887766","bab@gmail.com");
+    let contact3=new Contact("Sagar","Yadav","indrapuri","aara","bihar",800024,"91 9900887766","bab@gmail.com");
+    let contact4=new Contact("Neha","Yadav","indrapuri","aara","bihar",800024,"91 9900887766","bab@gmail.com");
+    let contact5=new Contact("Pihu","Yadav","indrapuri","aara","bihar",800024,"91 9900887766","bab@gmail.com");
 
     addContact(contact1);
     addContact(contact2);
     addContact(contact3);
+    addContact(contact4);
+    addContact(contact5);
 
 }catch(exception){
     console.log(exception)
 }
 console.log(contactArray);
+console.log("contacts for particular city");
+console.log(getContactForCity("aara"));
+
 // editContact("Babli","Yadav");
 // console.log(contactArray);
 
